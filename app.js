@@ -32,7 +32,7 @@ connect.then(
     (err) => console.log(err)
 );
 
-app.listen(process.env || 5000);
+app.listen(process.env.PORT || 8000);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
