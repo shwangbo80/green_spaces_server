@@ -1,12 +1,10 @@
 const express = require("express");
-const cors = require("cors");
 const spacesRouter = express.Router();
 const Space = require("../models/space");
+const cors = require("cors");
 
-const options = {
-    origin: "http://localhost:3000",
-};
-app.use(cors(options));
+var app = express();
+app.use(cors());
 
 spacesRouter
     .route("/")

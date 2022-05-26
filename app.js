@@ -11,6 +11,10 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const spacesRouter = require("./routes/spacesRouter");
 
+var app = express();
+
+app.use(cors());
+
 const url =
     "mongodb+srv://soo123:" +
     process.env.DB_PASSWORD +
@@ -28,22 +32,11 @@ connect.then(
     (err) => console.log(err)
 );
 
-var app = express();
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 5000;
-}
-app.listen(port);
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-const options = {
-    origin: "http://localhost:3000",
-};
-app.use(cors(options));
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
