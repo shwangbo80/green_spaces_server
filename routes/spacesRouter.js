@@ -3,7 +3,10 @@ const cors = require("cors");
 const spacesRouter = express.Router();
 const Space = require("../models/space");
 
-app.use(cors());
+const options = {
+    origin: "http://localhost:3000",
+};
+app.use(cors(options));
 
 spacesRouter
     .route("/")

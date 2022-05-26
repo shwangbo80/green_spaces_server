@@ -40,7 +40,10 @@ app.listen(port);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-app.use(cors());
+const options = {
+    origin: "http://localhost:3000",
+};
+app.use(cors(options));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
