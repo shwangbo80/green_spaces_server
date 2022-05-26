@@ -1,9 +1,10 @@
 const express = require("express");
 const spacesRouter = express.Router();
 const Space = require("../models/space");
+var cors = require("cors");
 
 spacesRouter
-    .route("/")
+    .route("/", cors())
     .get((req, res, next) => {
         Space.find()
             .then((spaces) => {
