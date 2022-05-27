@@ -1,10 +1,6 @@
 const express = require("express");
 const spacesRouter = express.Router();
 const Space = require("../models/space");
-const cors = require("cors");
-
-var app = express();
-app.use(cors());
 
 spacesRouter
     .route("/")
